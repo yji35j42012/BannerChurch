@@ -1,0 +1,247 @@
+h2 {
+	font-weight: 500;
+	font-size: 48px;
+	line-height: 98px;
+	&.title {
+		@include d_f(flex, space-between, flex-end);
+		border-bottom : 2px solid #352D39;
+		&:after {
+			content: attr(data-txt);
+			padding-bottom: 25px;
+			font-style: normal;
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 23px;
+		}
+	}
+}
+
+.head {
+	z-index: 1;
+	position: fixed;
+	top: 0;
+	left: 0;
+	@include d_f(flex, none, center);
+	width: 100%;
+	height: 71px;
+	padding: 0 40px;
+	@extend %transition;
+	.scroll & {
+		background-color: #fff;
+		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+	}
+}
+.logo {
+	position: relative;
+	width: 131px;
+	margin-right: 75px;
+	// .logo_img1
+	&_img1 {
+		opacity: 1;
+		.scroll & {
+			opacity: 0;
+		}
+	}
+	// .logo_img2
+	&_img2 {
+		position: absolute;
+		top: 0;
+		left: 0;
+		opacity: 0;
+
+		.scroll & {
+			opacity: 1;
+		}
+	}
+	.footer & {
+		margin-right: 22px;
+	}
+}
+.nav {
+	color: #fff;
+	.scroll & {
+		color: #352d39;
+	}
+	// .nav_item
+	&_item {
+		@extend %hand;
+		& + & {
+			margin-left: 50px;
+		}
+	}
+}
+.link {
+	@include d_f(flex, none, center);
+	margin-left: auto;
+	.footer & {
+		margin-left: 0;
+	}
+	li {
+		@extend %hand;
+		.head & {
+			filter: invert(1);
+		}
+		.scroll &,
+		.footer & {
+			filter: invert(15%) sepia(12%) saturate(892%) hue-rotate(236deg)
+				brightness(96%) contrast(89%);
+		}
+	}
+	li + li {
+		margin-left: 30px;
+
+		.footer & {
+			margin-left: 16px;
+		}
+	}
+	.facebook,
+	.spotify,
+	.apple_music {
+		width: 18px;
+		height: 18px;
+	}
+	.youtube {
+		width: 23px;
+		height: 16px;
+	}
+}
+.banner {
+	position: relative;
+	@include d_f(flex, center, center);
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		display: block;
+		width: 100%;
+		height: 100%;
+		background: linear-gradient(
+			90deg,
+			rgba(27, 12, 34, 0.6) -47.42%,
+			rgba(27, 12, 34, 0.482768) 26.81%,
+			rgba(27, 12, 34, 0.336234) 64.61%,
+			rgba(27, 12, 34, 0) 102.41%
+		);
+	}
+	// .banner_box
+	&_box {
+		position: absolute;
+		width: 400px;
+	}
+	// .banner_txt
+	&_txt {
+		color: #fff;
+		text-align: center;
+		font-size: 24px;
+		font-weight: 600;
+		letter-spacing: 0.2em;
+		line-height: 34px;
+	}
+	// .banner_scroll
+	&_scroll {
+		position: absolute;
+		bottom: 64px;
+		left: 0;
+		right: 0;
+		width: 92px;
+		margin: auto;
+		text-align: center;
+		img {
+			width: 24px;
+		}
+		&:after {
+			content: attr(data-txt);
+			display: block;
+			margin-top: 14px;
+			color: #fff;
+			font-size: 16px;
+			line-height: 21px;
+			font-family: "Nothing You Could Do";
+		}
+	}
+}
+.footer {
+	@include d_f(flex, none, center);
+	width: 100%;
+	height: 80px;
+	padding: 0 50px;
+	background-color: #fdfdfd;
+	box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.25);
+	.logo {
+		width: 117px;
+	}
+	// .footer_connection
+	&_connection {
+		@include d_f(flex, none, center);
+		margin-left: 58px;
+		color: #352d39;
+		li {
+			padding-right: 10px;
+			font-size: 16px;
+			line-height: 23px;
+		}
+		.info {
+			border-right: 1px solid #353535;
+		}
+		.address {
+			@include d_f(flex, none, center);
+			padding-left: 14px;
+			&::before {
+				content: "";
+				display: block;
+				width: 13px;
+				height: 16px;
+				margin-right: 9px;
+				background: url("../../images/icon_map.svg") no-repeat
+					center/contain;
+			}
+		}
+		.phone {
+			@include d_f(flex, none, center);
+			padding-left: 14px;
+			&::before {
+				content: "";
+				display: block;
+				width: 15px;
+				height: 15px;
+				margin-right: 9px;
+				background: url("../../images/icon_phone.svg") no-repeat
+					center/contain;
+			}
+		}
+	}
+	// .footer_copyright
+	&_copyright {
+		@include d_f(flex, none, center);
+		color: #897e8e;
+		margin-left: auto;
+		&::before {
+			content: "";
+			display: block;
+			width: 17px;
+			height: 17px;
+			margin-right: 9px;
+			background: url("../../images/icon_copyright.svg") no-repeat
+				center/contain;
+			filter: invert(56%) sepia(8%) saturate(523%) hue-rotate(237deg)
+				brightness(90%) contrast(89%);
+		}
+	}
+}
+.picBox {
+	.news & {
+		max-width: 480px;
+	}
+}
+.txtBox {
+	.news & {
+		width: 100%;
+		max-width: 595px;
+		padding-right: 66px;
+	}
+}
+.news {
+	@include d_f(flex, space-between, center);
+	padding: 65px 0 110px 140px;
+}
