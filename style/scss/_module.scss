@@ -14,8 +14,76 @@ h2 {
 			line-height: 23px;
 		}
 	}
+	&.titleSec {
+		position: relative;
+		text-align: center;
+		&::before {
+			content: "";
+			position: absolute;
+			top: 0;
+			left: 0;
+			bottom: 0;
+			display: block;
+			width: 100%;
+			height: 2px;
+			margin: auto 0;
+			background-color: #352d39;
+		}
+		.tw {
+			position: relative;
+			display: inline-block;
+			padding: 0 46px;
+			background-color: #fff;
+		}
+		.en {
+			position: absolute;
+			top: 88px;
+			left: 0;
+			right: 0;
+			margin: auto;
+			font-weight: 400;
+			font-size: 20px;
+			line-height: 23px;
+		}
+	}
+	.contact &{
+		max-width: 430px;
+		margin: auto;
+	}
 }
+.btn_more {
+	@include d_f(flex, center, center);
+	margin-left: auto;
+	font-weight: 700;
+	font-size: 20px;
+	line-height: 23px;
+	@extend %hand;
 
+	&::after {
+		content: "";
+		display: block;
+		width: 30px;
+		height: 6px;
+		margin-left: 16px;
+		background: url("../../images/icon_more.svg") no-repeat center/contain;
+	}
+	.music & {
+		width: 100%;
+		max-width: 434px;
+		margin: auto;
+		padding: 14px 0;
+		border: 1px solid #352d39;
+		border-radius: 4px;
+	}
+	.contact &{
+		width: 100%;
+		max-width: 420px;
+		margin: 42px auto 0;
+		padding: 14px 0;
+		border: 1px solid #352d39;
+		border-radius: 4px;
+	}
+}
 .head {
 	z-index: 1;
 	position: fixed;
@@ -243,8 +311,10 @@ h2 {
 		// background-color: #000;
 
 		.about & {
+			top: -48px;
 			left: 0;
 			right: auto;
+			height: calc(100% + 118px);
 		}
 	}
 	.news & {
@@ -321,29 +391,12 @@ h2 {
 		// .news_item_more
 		&_more {
 			padding-top: 30px;
-			.btn_more {
-				@include d_f(flex, center, center);
-				margin-left: auto;
-				font-weight: 700;
-				font-size: 20px;
-				line-height: 23px;
-
-				&::after {
-					content: "";
-					display: block;
-					width: 30px;
-					height: 6px;
-					margin-left: 16px;
-					background: url("../../images/icon_more.svg") no-repeat
-						center/contain;
-				}
-			}
 		}
 	}
 }
 .about {
 	@include d_f(flex, none, center);
-	padding-bottom: 53px;
+	padding-bottom: 171px;
 	// .about_detail
 	&_detail {
 		padding-top: 30px;
@@ -351,6 +404,8 @@ h2 {
 		font-size: 20px;
 		line-height: 160%;
 		letter-spacing: 0.05em;
+		span {
+		}
 	}
 	// .about_link
 	&_link {
@@ -358,18 +413,167 @@ h2 {
 		// .about_link_item
 		&_item {
 			@include d_f(flex, none, center);
+			margin-top: 46px;
+			font-size: 24px;
+			line-height: 49px;
+			border-bottom: 1px solid #352d39;
 			&::before {
 				content: "";
-				&._web {
-					width: 32px;
-					height: 32px;
-				}
-				&._fb {
-					width: 28px;
-					height: 28px;
-				}
+				display: block;
+				margin-right: 10px;
+				background-repeat: no-repeat;
+				background-size: contain;
+				background-position: center;
+			}
+			&._web::before {
+				width: 32px;
+				height: 32px;
+				background-image: url("../../images/icon_web.svg");
+			}
+			&._fb::before {
+				width: 28px;
+				height: 28px;
+				background-image: url("../../images/icon_facebook.svg");
+			}
+			& + & {
+				margin-left: 45px;
 			}
 			//
 		}
+	}
+}
+
+.music {
+	width: 100%;
+	max-width: 1000px;
+	margin: auto;
+	padding-bottom: 110px;
+	// .music_group
+	&_group {
+		@include d_f(flex, space-between);
+		flex-wrap: wrap;
+		margin-top: 73px;
+	}
+	// .music_item
+	&_item {
+		width: calc(100% / 3 - 160px / 3);
+		margin-bottom: 60px;
+		text-align: center;
+		// .music_item_name
+		&_name {
+			margin-top: 20px;
+			font-weight: 600;
+			font-size: 24px;
+			line-height: 160%;
+		}
+		// .music_item_info
+		&_info {
+			margin-top: 4px;
+			font-weight: 500;
+			font-size: 16px;
+			line-height: 23px;
+			color: #897e8e;
+		}
+
+		&._full {
+			position: relative;
+			width: 100%;
+			margin-top: 40px;
+			&:after {
+				content: "";
+				position: absolute;
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				display: block;
+				width: 80px;
+				height: 80px;
+				margin: auto;
+				background: url("../../images/icon_play.svg") no-repeat
+					center/contain;
+			}
+		}
+	}
+	// .music_btn
+	&_btn {
+		width: 100%;
+		max-width: 434px;
+	}
+}
+
+.contact {
+	position: relative;
+	padding-right: 76px;
+	padding-top: 56px;
+	padding-bottom: 47px;
+
+	&::before {
+		content: "";
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 50%;
+		height: 100%;
+		background: url("../../images/contact_bg.jpg") no-repeat left/cover;
+	}
+	// .contact_box
+	&_box {
+		position: relative;
+		width: 100%;
+		max-width: 694px;
+		margin-left: auto;
+		padding: 20px 0 70px;
+		background: #fdfdfd;
+		box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+	}
+	// .contact_info
+	&_info {
+		width: 100%;
+		max-width: 430px;
+		margin-top: 26px;
+		margin: 26px auto 0;
+		&:nth-child(2) {
+			margin-top: 20px;
+		}
+		span {
+			display: inline-block;
+			width: 100%;
+			margin-bottom: 12px;
+			font-weight: 500;
+			font-size: 20px;
+			line-height: 160%;
+			&:after {
+				content: "*";
+				color: #b076cd;
+			}
+		}
+	}
+	// .contact_inp
+	&_inp {
+		width: 100%;
+		max-width: 430px;
+		height: 46px;
+		padding: 0 14px;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 23px;
+		color: #897e8e;
+		border: 1px solid #897e8e;
+		border-radius: 5px;
+	}
+	// .contact_textarea
+	&_textarea {
+		width: 100%;
+		height: 150px;
+		max-width: 430px;
+		padding: 8px 14px;
+		resize: none;
+		color: #897e8e;
+		border: 1px solid #897e8e;
+		border-radius: 5px;
+		font-weight: 500;
+		font-size: 16px;
+		line-height: 23px;
 	}
 }
