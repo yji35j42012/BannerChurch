@@ -85,7 +85,7 @@ contact_email.addEventListener(
 		if (!IsEmail(contact_email.value) && contact_email.value !== "") {
 			contact_emailBox.classList.add("_err");
 			return;
-		}else{
+		} else {
 			contact_emailBox.classList.remove("_err");
 		}
 		checkAllValue();
