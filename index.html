@@ -13,17 +13,18 @@
 <body>
 	<div class="wrap">
 		<header class="head">
-			<h1 class="logo">
-				<a href="#">
+
+			<nav id="nav" class="nav">
+
+				<a class="logo" name="banner">
 					<img class="logo_img1" src="./images/logo.png" alt="旌旗音樂">
 					<img class="logo_img2" src="./images/logo_head.png" alt="旌旗音樂">
 				</a>
-			</h1>
-			<nav class="nav">
-				<a class="nav_item">最新消息</a>
-				<a class="nav_item">關於我們</a>
-				<a class="nav_item">旌旗音樂</a>
-				<a class="nav_item">聯絡我們</a>
+
+				<a class="nav_item" name="news">最新消息</a>
+				<a class="nav_item" name="about">關於我們</a>
+				<a class="nav_item" name="music">旌旗音樂</a>
+				<a class="nav_item" name="contact">聯絡我們</a>
 			</nav>
 			<ul class="link">
 				<li class="facebook"><img src="./images/icon_facebook.svg" alt=""></li>
@@ -32,7 +33,7 @@
 				<li class="apple_music"><img src="./images/icon_apple_music.svg" alt=""></li>
 			</ul>
 		</header>
-		<section class="banner">
+		<section id="banner" class="banner">
 			<img src="./images/homepage_banner.jpg" alt="旌旗音樂 banner">
 			<div class="banner_box">
 				<div class="banner_logo">
@@ -45,7 +46,7 @@
 			</div>
 		</section>
 
-		<section class="news">
+		<section id="news" class="news">
 			<div class="txtBox">
 				<h2 class="title" data-txt="NEWS">最新消息</h2>
 				<ul class="news_group">
@@ -80,7 +81,7 @@
 			</div>
 		</section>
 
-		<section class="about">
+		<section id="about" class="about">
 			<div class="picBox">
 				<img src="./images/pic_about.jpg" alt="">
 			</div>
@@ -102,77 +103,80 @@
 			</div>
 		</section>
 
-		<section class="music">
-			<h2 class="titleSec">
-				<span class="tw">旌旗音樂</span>
-				<span class="en">BANNER MUSIC</span>
-			</h2>
-			<ul class="music_group">
-				<li class="music_item">
-					<div class="music_item_pic">
-						<img src="./images/music1.jpg" alt="">
-					</div>
-					<div class="music_item_name">燈塔</div>
-					<div class="music_item_info">2022・迷你專輯</div>
-				</li>
-				<li class="music_item">
-					<div class="music_item_pic">
-						<img src="./images/music2.jpg" alt="">
-					</div>
-					<div class="music_item_name">笑顏</div>
-					<div class="music_item_info">2021・迷你專輯</div>
-				</li>
-				<li class="music_item">
-					<div class="music_item_pic">
-						<img src="./images/music3.jpg" alt="">
-					</div>
-					<div class="music_item_name">獻給祢的歌</div>
-					<div class="music_item_info">2021・迷你專輯</div>
-				</li>
-				<li class="music_item">
-					<div class="music_item_pic">
-						<img src="./images/music1.jpg" alt="">
-					</div>
-					<div class="music_item_name">燈塔</div>
-					<div class="music_item_info">2022・迷你專輯</div>
-				</li>
-				<li class="music_item">
-					<div class="music_item_pic">
-						<img src="./images/music2.jpg" alt="">
-					</div>
-					<div class="music_item_name">笑顏</div>
-					<div class="music_item_info">2021・迷你專輯</div>
-				</li>
-				<li class="music_item">
-					<div class="music_item_pic">
-						<img src="./images/music3.jpg" alt="">
-					</div>
-					<div class="music_item_name">獻給祢的歌</div>
-					<div class="music_item_info">2021・迷你專輯</div>
-				</li>
-				<li class="music_item _full">
-					<img src="./images/music4.jpg" alt="">
-				</li>
-			</ul>
-			<button class="border_btn">All videos</button>
+		<section id="music" class="music">
+			<div class="container">
+				<h2 class="titleSec">
+					<span class="tw">旌旗音樂</span>
+					<span class="en">BANNER MUSIC</span>
+				</h2>
+				<ul class="music_group">
+					<li class="music_item">
+						<div class="music_item_pic">
+							<img src="./images/music1.jpg" alt="">
+						</div>
+						<div class="music_item_name">燈塔</div>
+						<div class="music_item_info">2022・迷你專輯</div>
+					</li>
+					<li class="music_item">
+						<div class="music_item_pic">
+							<img src="./images/music2.jpg" alt="">
+						</div>
+						<div class="music_item_name">笑顏</div>
+						<div class="music_item_info">2021・迷你專輯</div>
+					</li>
+					<li class="music_item">
+						<div class="music_item_pic">
+							<img src="./images/music3.jpg" alt="">
+						</div>
+						<div class="music_item_name">獻給祢的歌</div>
+						<div class="music_item_info">2021・迷你專輯</div>
+					</li>
+					<li class="music_item">
+						<div class="music_item_pic">
+							<img src="./images/music1.jpg" alt="">
+						</div>
+						<div class="music_item_name">燈塔</div>
+						<div class="music_item_info">2022・迷你專輯</div>
+					</li>
+					<li class="music_item">
+						<div class="music_item_pic">
+							<img src="./images/music2.jpg" alt="">
+						</div>
+						<div class="music_item_name">笑顏</div>
+						<div class="music_item_info">2021・迷你專輯</div>
+					</li>
+					<li class="music_item">
+						<div class="music_item_pic">
+							<img src="./images/music3.jpg" alt="">
+						</div>
+						<div class="music_item_name">獻給祢的歌</div>
+						<div class="music_item_info">2021・迷你專輯</div>
+					</li>
+					<li class="music_item _full">
+						<img src="./images/music4.jpg" alt="">
+					</li>
+				</ul>
+				<button class="border_btn">All videos</button>
+			</div>
 		</section>
 
-		<section class="contact">
+		<section id="contact" class="contact">
 			<div class="contact_box">
 				<h2 class="title" data-txt="CONTACT US">聯絡我們</h2>
 				<div class="contact_info _name">
 					<span>姓名/暱稱</span>
-					<input type="text" class="contact_inp" placeholder="姓名/暱稱">
+					<input id="contact_name" type="text" class="contact_inp" placeholder="姓名/暱稱">
 				</div>
-				<div class="contact_info _main">
+				<!-- _err -->
+				<div id="contact_emailBox" class="contact_info _main ">
 					<span>電子郵件</span>
-					<input type="text" class="contact_inp" placeholder="example@email.com">
+					<input id="contact_email" type="text" class="contact_inp" placeholder="example@email.com">
 				</div>
 				<div class="contact_info _txt">
 					<span>想說的話</span>
-					<textarea class="contact_textarea" placeholder="請輸入文字"></textarea>
+					<textarea id="contact_text" class="contact_textarea" placeholder="請輸入文字"></textarea>
 				</div>
-				<button class="border_btn">Send</button>
+				<button id="sendBtn" class="border_btn _unClick">Send</button>
 			</div>
 		</section>
 
@@ -192,7 +196,7 @@
 				</li>
 			</ul>
 		</section>
-		
+
 		<footer class="footer">
 			<h1 class="logo">
 				<a href="#">
