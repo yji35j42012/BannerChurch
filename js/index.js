@@ -102,3 +102,42 @@ function IsEmail(email) {
 		return true;
 	}
 }
+
+var music_group = document.querySelectorAll("#music_group > li:not(._full)");
+var musicTitle = document.querySelector("#musicTitle");
+var musicPic = document.querySelector("#musicPic");
+var musicClose = document.querySelector("#musicClose");
+var musicAlert = document.querySelector("#musicAlert");
+for (let i = 0; i < music_group.length; i++) {
+	const element = music_group[i];
+	element.onclick = function() {
+		var num = i + 1;
+		var imgSrc = document
+			.querySelector(`.music_item:nth-child(${num}) img`)
+			.getAttribute("src");
+		var musicName = document.querySelector(
+			`.music_item:nth-child(${num}) .music_item_name`
+		).innerHTML;
+		var musicInfo = document.querySelector(
+			`.music_item:nth-child(${num}) .music_item_info`
+		).innerHTML;
+		musicTitle.innerHTML = musicName;
+		musicTitle.setAttribute("data-txt", musicInfo);
+		musicPic.setAttribute("src", imgSrc);
+
+		musicAlert.classList.add("_show");
+		setTimeout(() => {
+			musicAlert.classList.add("_active");
+		}, 10);
+	};
+}
+
+musicClose.onclick = function() {
+	musicAlert.classList.remove("_active");
+	setTimeout(() => {
+		musicAlert.classList.remove("_show");
+	}, 300);
+
+	// musicAlert.style
+};
+console.log(musicAlert);

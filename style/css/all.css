@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-.border_btn, .border_btn::after, .btn_more, .btn_more::after, .head, .news_item, .news_item_date::before, .about_link_item, .about_link_item::before {
+.border_btn, .border_btn::after, .btn_more, .btn_more::after, .head, .news_item, .news_item_date::before, .about_link_item, .about_link_item::before, .alert, .alert_musicBtn::before {
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
 
-.border_btn, .btn_more, .logo, .nav_item, .link li, .about_link_item {
+.border_btn, .btn_more, .logo, .nav_item, .link li, .about_link_item, .music_item {
   cursor: pointer;
 }
 
@@ -139,7 +139,7 @@ h2.titleSec .en {
     background-color: #352d39;
     color: #fdfdfd;
   }
-  .border_btn:hover::after {
+  .border_btn:hover::before, .border_btn:hover::after {
     -webkit-filter: invert(99%) sepia(1%) saturate(758%) hue-rotate(317deg) brightness(117%) contrast(98%);
             filter: invert(99%) sepia(1%) saturate(758%) hue-rotate(317deg) brightness(117%) contrast(98%);
   }
@@ -150,7 +150,7 @@ h2.titleSec .en {
   color: #fdfdfd;
 }
 
-.border_btn:active::after {
+.border_btn:active::before, .border_btn:active::after {
   -webkit-filter: invert(99%) sepia(1%) saturate(758%) hue-rotate(317deg) brightness(117%) contrast(98%);
           filter: invert(99%) sepia(1%) saturate(758%) hue-rotate(317deg) brightness(117%) contrast(98%);
 }
@@ -992,5 +992,175 @@ h2.titleSec .en {
 
 .ablum_item {
   width: calc(100% / 4);
+}
+
+.alert {
+  z-index: 1;
+  position: fixed;
+  display: none;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  opacity: 0;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.alert._show {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.alert._active {
+  opacity: 1;
+}
+
+.alert_box {
+  position: relative;
+  display: -webkit-inline-box;
+  display: -ms-inline-flexbox;
+  display: inline-flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 66px 68px;
+  background: #f5f2f0;
+  -webkit-box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.25);
+  border-radius: 4px;
+}
+
+.alert_close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 40px;
+  height: 40px;
+  background-color: #352d39;
+}
+
+.alert_close::before, .alert_close::after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 28px;
+  height: 1px;
+  background-color: #f5f2f0;
+}
+
+.alert_close::before {
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+.alert_close::after {
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
+}
+
+.alert_musicPic {
+  width: 284px;
+  height: 284px;
+  margin-right: 50px;
+}
+
+.alert_musicTxt {
+  min-width: 320px;
+}
+
+.alert_musicTxt_title {
+  padding-bottom: 16px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 24px;
+  line-height: 34px;
+  letter-spacing: 0.1em;
+  border-bottom: 1px solid #352d39;
+}
+
+.alert_musicTxt_title:after {
+  content: attr(data-txt);
+  display: block;
+  margin-top: 4px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
+  letter-spacing: 0.05em;
+  color: #897e8e;
+}
+
+.alert_musicBtn {
+  width: 100%;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  padding: 10px 20px;
+  margin-top: 18px;
+  font-style: normal;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 23px;
+  letter-spacing: 0.06em;
+}
+
+.alert_musicBtn._spotify::before {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../images/icon_spotify.svg");
+  background-size: contain;
+}
+
+.alert_musicBtn._am::before {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../images/icon_apple_music.svg");
+  background-size: 22px 22px;
+}
+
+.alert_musicBtn._sheet::before {
+  width: 24px;
+  height: 24px;
+  background-image: url("../../images/icon_music_sheet.svg");
+  background-size: 15px 18px;
+}
+
+.alert_musicBtn::before {
+  content: "";
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.alert_musicBtn::after {
+  margin-left: auto;
 }
 /*# sourceMappingURL=all.css.map */
