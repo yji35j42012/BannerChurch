@@ -1040,6 +1040,15 @@ h2.titleSec .en {
   border-radius: 4px;
 }
 
+.alert_box._contact {
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 16px 40px 20px;
+  border-radius: 10px;
+}
+
 .alert_close {
   position: absolute;
   top: 0;
@@ -1162,5 +1171,18 @@ h2.titleSec .en {
 
 .alert_musicBtn::after {
   margin-left: auto;
+}
+
+.alert_contactPic {
+  width: 24px;
+  height: 21px;
+}
+
+.alert_contactTxt {
+  margin-top: 8px;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 23px;
 }
 /*# sourceMappingURL=all.css.map */

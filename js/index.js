@@ -108,6 +108,8 @@ var musicTitle = document.querySelector("#musicTitle");
 var musicPic = document.querySelector("#musicPic");
 var musicClose = document.querySelector("#musicClose");
 var musicAlert = document.querySelector("#musicAlert");
+
+var mailAlert = document.querySelector("#mailAlert");
 for (let i = 0; i < music_group.length; i++) {
 	const element = music_group[i];
 	element.onclick = function() {
@@ -140,4 +142,27 @@ musicClose.onclick = function() {
 
 	// musicAlert.style
 };
-console.log(musicAlert);
+
+sendBtn.onclick = function() {
+	mailAlert.classList.add("_show");
+	setTimeout(() => {
+		mailAlert.classList.add("_active");
+	}, 10);
+
+	setTimeout(() => {
+		mailAlert.classList.remove("_active");
+	}, 1010);
+
+	setTimeout(() => {
+		mailAlert.classList.remove("_show");
+	}, 1310);
+};
+mailAlert.onclick = function() {
+	setTimeout(() => {
+		mailAlert.classList.remove("_active");
+	}, 1010);
+
+	setTimeout(() => {
+		mailAlert.classList.remove("_show");
+	}, 1310);
+};
