@@ -7,55 +7,7 @@ function scrollListener() {
 	}
 }
 
-// nav滑動
-window.addEventListener("scroll", scrollListener);
-var nav = document.querySelectorAll("#nav > a");
-var scrollState = "down";
-var oldScroll = 0;
-for (let i = 0; i < nav.length; i++) {
-	const element = nav[i];
-	element.onclick = function() {
-		let moveItem = element.getAttribute("name");
-		var item = document.querySelector("#" + moveItem);
-		var goScroll = item.offsetTop - 71;
-		var nowScroll = window.scrollY;
-		nowScroll >= oldScroll ? (scrollState = "down") : (scrollState = "up");
-		oldScroll = nowScroll;
 
-		if (goScroll > nowScroll) {
-			goDown(nowScroll, goScroll);
-			scrollState = "down";
-		} else {
-			goTop(nowScroll, goScroll);
-			scrollState = "up";
-		}
-	};
-}
-
-function goTop(from, to) {
-	scrollState = "up";
-	let scrollTime = setInterval(() => {
-		if (from <= to) {
-			from = to;
-			clearInterval(scrollTime);
-		} else {
-			window.scrollTo(0, from);
-			from = from - 50;
-		}
-	}, 0);
-}
-function goDown(from, to) {
-	let scrollTime = setInterval(() => {
-		if (from >= to) {
-			from = to;
-			clearInterval(scrollTime);
-		} else {
-			window.scrollTo(0, from);
-			from = from + 50;
-		}
-	}, 0);
-}
-// nav滑動
 // 聯絡我們輸入
 var contact_inp = document.querySelectorAll("[name='contact_inp']");
 var sendBtn = document.querySelector("#sendBtn");
@@ -81,7 +33,7 @@ function checkAllValue() {
 contact_name.addEventListener("blur", checkAllValue, false);
 contact_email.addEventListener(
 	"blur",
-	function() {
+	function () {
 		if (!IsEmail(contact_email.value) && contact_email.value !== "") {
 			contact_emailBox.classList.add("_err");
 			return;
@@ -112,7 +64,7 @@ var musicAlert = document.querySelector("#musicAlert");
 var mailAlert = document.querySelector("#mailAlert");
 for (let i = 0; i < music_group.length; i++) {
 	const element = music_group[i];
-	element.onclick = function() {
+	element.onclick = function () {
 		var num = i + 1;
 		var imgSrc = document
 			.querySelector(`.music_item:nth-child(${num}) img`)
@@ -134,7 +86,7 @@ for (let i = 0; i < music_group.length; i++) {
 	};
 }
 
-musicClose.onclick = function() {
+musicClose.onclick = function () {
 	musicAlert.classList.remove("_active");
 	setTimeout(() => {
 		musicAlert.classList.remove("_show");
@@ -143,7 +95,7 @@ musicClose.onclick = function() {
 	// musicAlert.style
 };
 
-sendBtn.onclick = function() {
+sendBtn.onclick = function () {
 	mailAlert.classList.add("_show");
 	setTimeout(() => {
 		mailAlert.classList.add("_active");
@@ -157,7 +109,7 @@ sendBtn.onclick = function() {
 		mailAlert.classList.remove("_show");
 	}, 1310);
 };
-mailAlert.onclick = function() {
+mailAlert.onclick = function () {
 	setTimeout(() => {
 		mailAlert.classList.remove("_active");
 	}, 1010);
@@ -166,3 +118,8 @@ mailAlert.onclick = function() {
 		mailAlert.classList.remove("_show");
 	}, 1310);
 };
+
+var newsMore = document.querySelector("#newsMore");
+newsMore.onclick = function () {
+	location.href = './news.html'
+}

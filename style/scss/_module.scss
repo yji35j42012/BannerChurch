@@ -51,6 +51,12 @@ h2 {
 		margin: auto;
 	}
 }
+.wrap {
+	@include d_f(flex);
+	flex-direction: column;
+	width: 100%;
+	height: 100%;
+}
 .container {
 	max-width: 1000px;
 	margin: auto;
@@ -282,6 +288,7 @@ h2 {
 	}
 }
 .footer {
+	flex: none;
 	@include d_f(flex, none, center);
 	width: 100%;
 	height: 80px;
@@ -399,6 +406,11 @@ h2 {
 	&_item {
 		padding: 30px 0;
 		border-bottom: 1px solid #897e8e;
+		.news_list & {
+			width: calc(100% - 236px - 46px);
+			padding: 0;
+			border-bottom: none;
+		}
 		@extend %transition;
 		@include hoverHandler {
 			color: #897e8e;
@@ -433,6 +445,9 @@ h2 {
 			line-height: 34px;
 			white-space: nowrap;
 			text-overflow: ellipsis;
+			.news_list & {
+				margin-top: 12px;
+			}
 		}
 		// .news_item_info
 		&_info {
@@ -441,18 +456,43 @@ h2 {
 			font-weight: 500;
 			font-size: 20px;
 			line-height: 160%;
+			.news_list & {
+				margin-top: 12px;
+			}
 			span {
 				overflow: hidden;
 				display: block;
 				width: 100%;
 				white-space: nowrap;
 				text-overflow: ellipsis;
+
+				.news_list & {
+					overflow: hidden;
+					display: -webkit-box;
+					-webkit-box-orient: vertical;
+					-webkit-line-clamp: 2;
+					white-space: inherit;
+					line-height: 32px;
+				}
 			}
 		}
 		// .news_item_more
 		&_more {
 			padding-top: 30px;
 		}
+	}
+	// .news_list
+	&_list {
+		@include d_f(flex);
+		width: 100%;
+		padding: 40px 0;
+		border-bottom: 1px solid #897e8e;
+	}
+	// .news_pic
+	&_pic {
+		flex: none;
+		width: 236px;
+		margin-right: 46px;
 	}
 }
 .about {
@@ -857,5 +897,45 @@ h2 {
 		font-weight: 500;
 		font-size: 16px;
 		line-height: 23px;
+	}
+}
+
+.content {
+	width: 100%;
+	height: 100%;
+	padding-top: 30px;
+	padding-bottom: 70px;
+}
+
+.page {
+	@include d_f(flex, flex-end);
+	margin-top: 36px;
+
+	// .page_item
+	&_item {
+		@include d_f(flex, center, center);
+		width: 32px;
+		height: 32px;
+		border-radius: 100%;
+		@extend %hand;
+		&._on {
+			background-color: #352d39;
+			color: #fff;
+			pointer-events: none;
+		}
+		& + & {
+			margin-left: 14px;
+		}
+	}
+	// .page_next
+	&_next {
+		@include d_f(flex, center, center);
+		width: 36px;
+		height: 32px;
+		margin-left: 14px;
+		@extend %hand;
+		img {
+			height: 12px;
+		}
 	}
 }
