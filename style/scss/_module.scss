@@ -405,11 +405,18 @@ h2 {
 	.about & {
 		width: 50%;
 		padding: 0 140px 0 65px;
+		@include mw(L) {
+			padding-right: 40px;
+			padding-left: 30px;
+		}
 	}
 }
 .news {
 	@include d_f(flex, space-between, center);
 	padding: 65px 0 94px 140px;
+	@include mw(L) {
+		padding-left: 70px;
+	}
 	// .news_item
 	&_item {
 		padding: 30px 0;
@@ -604,6 +611,14 @@ h2 {
 		@include d_f(flex, space-between);
 		flex-wrap: wrap;
 		margin-top: 73px;
+		@include mw(L) {
+			overflow: hidden;
+			justify-content: flex-start;
+			flex-wrap: nowrap;
+			width: 100%;
+			max-width: 242px;
+			margin: 73px auto 0;
+		}
 	}
 	// .music_item
 	&_item {
@@ -646,11 +661,49 @@ h2 {
 					center/contain;
 			}
 		}
+
+		@include mw(L) {
+			flex: none;
+			width: 100%;
+			max-width: 242px;
+		}
 	}
 	// .music_btn
 	&_btn {
 		width: 100%;
 		max-width: 434px;
+	}
+	&_prev,
+	&_next {
+		position: absolute;
+		top: 105px;
+		left: 0;
+		right: 0;
+		display: none;
+		width: 19px;
+		height: 38px;
+		margin: 0 auto;
+		@include mw(L) {
+			display: block;
+		}
+	}
+	// .music_prev
+	&_prev {
+		right: 340px;
+		background: url("../../images/button_front.svg") no-repeat
+			center/contain;
+	}
+	// .music_next
+	&_next {
+		left: 340px;
+		background: url("../../images/button_next.svg") no-repeat center/contain;
+	}
+	// .music_box
+	&_box {
+		position: relative;
+	}
+	.music_dot {
+		display: none;
 	}
 }
 .contact {
