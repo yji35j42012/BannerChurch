@@ -123,6 +123,12 @@ h2.titleSec .en {
   border-radius: 4px;
 }
 
+@media screen and (max-width: 1024px) {
+  .border_btn {
+    display: none;
+  }
+}
+
 .music .border_btn {
   width: 100%;
   max-width: 434px;
@@ -874,15 +880,15 @@ h2.titleSec .en {
 
 @media screen and (max-width: 1024px) {
   .music_group {
-    overflow: hidden;
     -webkit-box-pack: start;
         -ms-flex-pack: start;
             justify-content: flex-start;
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
     width: 100%;
-    max-width: 242px;
     margin: 73px auto 0;
+    -webkit-transform: translateX(-100%);
+            transform: translateX(-100%);
   }
 }
 
@@ -973,8 +979,46 @@ h2.titleSec .en {
   position: relative;
 }
 
-.music .music_dot {
+@media screen and (max-width: 1024px) {
+  .music_box {
+    overflow: hidden;
+    width: 100%;
+    max-width: 242px;
+  }
+}
+
+.music_dot {
   display: none;
+  margin-top: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+  .music_dot {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+        -ms-flex-pack: center;
+            justify-content: center;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+}
+
+.music_dot_item {
+  width: 28px;
+  height: 6px;
+  border-radius: 10px;
+  background-color: rgba(53, 45, 57, 0.1);
+}
+
+.music_dot_item._on {
+  background-color: rgba(53, 45, 57, 0.6);
+}
+
+.music_dot_item + .music_dot_item {
+  margin-left: 12px;
 }
 
 .contact {

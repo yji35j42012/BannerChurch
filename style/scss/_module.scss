@@ -75,7 +75,9 @@ h2 {
 	border-radius: 4px;
 	@extend %hand;
 	@extend %transition;
-
+	@include mw(L) {
+		display: none;
+	}
 	.music & {
 		width: 100%;
 		max-width: 434px;
@@ -612,12 +614,11 @@ h2 {
 		flex-wrap: wrap;
 		margin-top: 73px;
 		@include mw(L) {
-			overflow: hidden;
 			justify-content: flex-start;
 			flex-wrap: nowrap;
 			width: 100%;
-			max-width: 242px;
 			margin: 73px auto 0;
+			transform: translateX(-100%);
 		}
 	}
 	// .music_item
@@ -700,10 +701,35 @@ h2 {
 	}
 	// .music_box
 	&_box {
+		//
 		position: relative;
+		@include mw(L) {
+			overflow: hidden;
+			width: 100%;
+			max-width: 242px;
+		}
 	}
-	.music_dot {
+	// .music_dot
+	&_dot {
 		display: none;
+		margin-top: 50px;
+		@include mw(L) {
+			@include d_f(flex, center, center);
+		}
+
+		// .music_dot_item
+		&_item {
+			width: 28px;
+			height: 6px;
+			border-radius: 10px;
+			background-color: rgba(53, 45, 57, 0.1);
+			&._on {
+				background-color: rgba(53, 45, 57, 0.6);
+			}
+			& + & {
+				margin-left: 12px;
+			}
+		}
 	}
 }
 .contact {
