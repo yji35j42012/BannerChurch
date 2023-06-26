@@ -295,6 +295,24 @@ h2.titleSec .en {
   display: none;
 }
 
+@media screen and (max-width: 1024px) {
+  .nav .link {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: start;
+        -ms-flex-pack: start;
+            justify-content: flex-start;
+    -webkit-box-align: stretch;
+        -ms-flex-align: stretch;
+            align-items: stretch;
+  }
+  .nav .link li {
+    -webkit-filter: invert(15%) sepia(12%) saturate(892%) hue-rotate(236deg) brightness(96%) contrast(89%);
+            filter: invert(15%) sepia(12%) saturate(892%) hue-rotate(236deg) brightness(96%) contrast(89%);
+  }
+}
+
 .nav_item + .nav_item {
   margin-left: 50px;
 }
@@ -307,17 +325,29 @@ h2.titleSec .en {
 
 @media screen and (max-width: 1024px) {
   .nav_item {
-    display: block;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: none;
+        -ms-flex-pack: none;
+            justify-content: none;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    height: 57px;
+    padding: 0 30px;
     color: #352d39;
+    border-bottom: 1px solid #352d39;
   }
 }
 
 @media screen and (max-width: 1024px) {
   .nav {
     position: absolute;
-    top: 0;
+    top: 71px;
     left: 0;
     width: 100%;
+    height: 100vh;
     background-color: #fff;
   }
 }
@@ -407,6 +437,15 @@ h2.titleSec .en {
   margin-left: auto;
 }
 
+.link._nav {
+  margin-top: 40px;
+  padding-left: 30px;
+}
+
+.link._nav li + li {
+  margin-left: 26px;
+}
+
 .footer .link {
   margin-left: 0;
 }
@@ -418,6 +457,7 @@ h2.titleSec .en {
 
 .scroll .link li,
 .footer .link li,
+._show_menu .link li,
 ._newsDetail .link li {
   -webkit-filter: invert(15%) sepia(12%) saturate(892%) hue-rotate(236deg) brightness(96%) contrast(89%);
           filter: invert(15%) sepia(12%) saturate(892%) hue-rotate(236deg) brightness(96%) contrast(89%);
@@ -444,8 +484,8 @@ h2.titleSec .en {
 }
 
 @media screen and (max-width: 1024px) {
-  .link .spotify,
-  .link .apple_music {
+  .link:not(._nav) .spotify,
+  .link:not(._nav) .apple_music {
     display: none;
   }
 }
