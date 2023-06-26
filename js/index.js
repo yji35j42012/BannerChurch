@@ -7,7 +7,6 @@ function scrollListener() {
 	}
 }
 
-
 // 聯絡我們輸入
 var contact_inp = document.querySelectorAll("[name='contact_inp']");
 var sendBtn = document.querySelector("#sendBtn");
@@ -18,8 +17,6 @@ var contact_email = document.querySelector("#contact_email");
 var contact_text = document.querySelector("#contact_text");
 
 function checkAllValue() {
-	console.log("???");
-
 	if (
 		contact_name.value !== "" &&
 		contact_email.value !== "" &&
@@ -33,7 +30,7 @@ function checkAllValue() {
 contact_name.addEventListener("blur", checkAllValue, false);
 contact_email.addEventListener(
 	"blur",
-	function () {
+	function() {
 		if (!IsEmail(contact_email.value) && contact_email.value !== "") {
 			contact_emailBox.classList.add("_err");
 			return;
@@ -55,16 +52,16 @@ function IsEmail(email) {
 	}
 }
 
-var music_group = document.querySelectorAll("#music_group > li:not(._full)");
+var music_item = document.querySelectorAll("#music_group > li:not(._full)");
 var musicTitle = document.querySelector("#musicTitle");
 var musicPic = document.querySelector("#musicPic");
 var musicClose = document.querySelector("#musicClose");
 var musicAlert = document.querySelector("#musicAlert");
 
 var mailAlert = document.querySelector("#mailAlert");
-for (let i = 0; i < music_group.length; i++) {
-	const element = music_group[i];
-	element.onclick = function () {
+for (let i = 0; i < music_item.length; i++) {
+	const element = music_item[i];
+	element.onclick = function() {
 		var num = i + 1;
 		var imgSrc = document
 			.querySelector(`.music_item:nth-child(${num}) img`)
@@ -86,7 +83,7 @@ for (let i = 0; i < music_group.length; i++) {
 	};
 }
 
-musicClose.onclick = function () {
+musicClose.onclick = function() {
 	musicAlert.classList.remove("_active");
 	setTimeout(() => {
 		musicAlert.classList.remove("_show");
@@ -95,7 +92,7 @@ musicClose.onclick = function () {
 	// musicAlert.style
 };
 
-sendBtn.onclick = function () {
+sendBtn.onclick = function() {
 	mailAlert.classList.add("_show");
 	setTimeout(() => {
 		mailAlert.classList.add("_active");
@@ -109,7 +106,7 @@ sendBtn.onclick = function () {
 		mailAlert.classList.remove("_show");
 	}, 1310);
 };
-mailAlert.onclick = function () {
+mailAlert.onclick = function() {
 	setTimeout(() => {
 		mailAlert.classList.remove("_active");
 	}, 1010);
@@ -120,6 +117,59 @@ mailAlert.onclick = function () {
 };
 
 var newsMore = document.querySelector("#newsMore");
-newsMore.onclick = function () {
-	location.href = './news.html'
+newsMore.onclick = function() {
+	location.href = "./news.html";
+};
+
+// 旌旗音樂
+var music_group = document.querySelector("#music_group");
+var music_prev = document.querySelector("#music_prev");
+var music_next = document.querySelector("#music_next");
+var music_count = 0;
+var music_max = music_item.length;
+var music_dot = document.querySelector("#music_dot");
+var music_item;
+for (let i = 0; i < music_max; i++) {
+	console.log("music_dot");
+	var setDot = document.createElement("li");
+	setDot.setAttribute("class", "music_dot_item");
+	music_dot.append(setDot);
 }
+
+music_item = document.querySelectorAll("#music_dot > .music_dot_item");
+
+music_item[music_count].classList.add("_on");
+
+music_prev.onclick = function() {
+	console.log("music_prev");
+	music_item[music_count].classList.remove("_on");
+	if (music_next.classList.contains("_unclick")) {
+		music_next.classList.remove("_unclick");
+	}
+	music_count--;
+	var move = music_count * 100;
+	music_group.style = `transform: translateX(-${move}%);`;
+	if (music_count == 0) {
+		music_prev.classList.add("_unclick");
+	} else {
+		music_prev.classList.remove("_unclick");
+	}
+	music_item[music_count].classList.add("_on");
+};
+music_next.onclick = function() {
+	console.log("music_next");
+	music_item[music_count].classList.remove("_on");
+	music_count++;
+	var move = music_count * 100;
+	music_group.style = `transform: translateX(-${move}%);`;
+	if (music_prev.classList.contains("_unclick")) {
+		music_prev.classList.remove("_unclick");
+	}
+	if (music_count + 1 == music_max) {
+		music_next.classList.add("_unclick");
+	} else {
+		music_next.classList.remove("_unclick");
+	}
+
+	music_item[music_count].classList.add("_on");
+};

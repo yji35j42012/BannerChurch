@@ -1,10 +1,10 @@
 @import url("https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-.border_btn, .border_btn::after, .btn_more, .btn_more::after, .head, .news_item, .news_item_date::before, .about_link_item, .about_link_item::before, .alert, .alert_musicBtn::before, .page_detail_front, .page_detail_next, .page_detail_all, .page_detail_front img, .page_detail_next img, .page_detail_all::before {
+.border_btn, .border_btn::after, .btn_more, .btn_more::after, .head, .news_item, .news_item_date::before, .about_link_item, .about_link_item::before, .music_group, .alert, .alert_musicBtn::before, .page_detail_front, .page_detail_next, .page_detail_all, .page_detail_front img, .page_detail_next img, .page_detail_all::before {
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
 
-.border_btn, .btn_more, .logo, .nav_item, .link li, .about_link_item, .music_item, .page_item, .page_next, .page_detail_front, .page_detail_next, .page_detail_all {
+.border_btn, .btn_more, .logo, .nav_item, .link li, .about_link_item, .music_item, .music_prev, .music_next, .page_item, .page_next, .page_detail_front, .page_detail_next, .page_detail_all {
   cursor: pointer;
 }
 
@@ -132,6 +132,7 @@ h2.titleSec .en {
 .music .border_btn {
   width: 100%;
   max-width: 434px;
+  margin-top: 56px;
 }
 
 .contact .border_btn {
@@ -886,9 +887,7 @@ h2.titleSec .en {
     -ms-flex-wrap: nowrap;
         flex-wrap: nowrap;
     width: 100%;
-    margin: 73px auto 0;
-    -webkit-transform: translateX(-100%);
-            transform: translateX(-100%);
+    margin-top: 30px;
   }
 }
 
@@ -943,6 +942,26 @@ h2.titleSec .en {
   }
 }
 
+.music_video {
+  position: relative;
+  width: 100%;
+  margin-top: 40px;
+}
+
+.music_video:after {
+  content: "";
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: block;
+  width: 80px;
+  height: 80px;
+  margin: auto;
+  background: url("../../images/icon_play.svg") no-repeat center/contain;
+}
+
 .music_btn {
   width: 100%;
   max-width: 434px;
@@ -950,7 +969,7 @@ h2.titleSec .en {
 
 .music_prev, .music_next {
   position: absolute;
-  top: 105px;
+  top: 335px;
   left: 0;
   right: 0;
   display: none;
@@ -970,9 +989,21 @@ h2.titleSec .en {
   background: url("../../images/button_front.svg") no-repeat center/contain;
 }
 
+.music_prev._unclick {
+  pointer-events: none;
+  -webkit-filter: invert(99%) sepia(1%) saturate(1923%) hue-rotate(44deg) brightness(118%) contrast(70%);
+          filter: invert(99%) sepia(1%) saturate(1923%) hue-rotate(44deg) brightness(118%) contrast(70%);
+}
+
 .music_next {
   left: 340px;
   background: url("../../images/button_next.svg") no-repeat center/contain;
+}
+
+.music_next._unclick {
+  pointer-events: none;
+  -webkit-filter: invert(99%) sepia(1%) saturate(1923%) hue-rotate(44deg) brightness(118%) contrast(70%);
+          filter: invert(99%) sepia(1%) saturate(1923%) hue-rotate(44deg) brightness(118%) contrast(70%);
 }
 
 .music_box {
@@ -984,6 +1015,7 @@ h2.titleSec .en {
     overflow: hidden;
     width: 100%;
     max-width: 242px;
+    margin: auto;
   }
 }
 

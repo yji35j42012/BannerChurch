@@ -81,6 +81,7 @@ h2 {
 	.music & {
 		width: 100%;
 		max-width: 434px;
+		margin-top: 56px;
 	}
 	.contact & {
 		width: 100%;
@@ -613,12 +614,12 @@ h2 {
 		@include d_f(flex, space-between);
 		flex-wrap: wrap;
 		margin-top: 73px;
+		@extend %transition;
 		@include mw(L) {
 			justify-content: flex-start;
 			flex-wrap: nowrap;
 			width: 100%;
-			margin: 73px auto 0;
-			transform: translateX(-100%);
+			margin-top: 30px;
 		}
 	}
 	// .music_item
@@ -669,6 +670,26 @@ h2 {
 			max-width: 242px;
 		}
 	}
+	// .music_video
+	&_video {
+		position: relative;
+		width: 100%;
+		margin-top: 40px;
+		&:after {
+			content: "";
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			display: block;
+			width: 80px;
+			height: 80px;
+			margin: auto;
+			background: url("../../images/icon_play.svg") no-repeat
+				center/contain;
+		}
+	}
 	// .music_btn
 	&_btn {
 		width: 100%;
@@ -677,13 +698,14 @@ h2 {
 	&_prev,
 	&_next {
 		position: absolute;
-		top: 105px;
+		top: 335px;
 		left: 0;
 		right: 0;
 		display: none;
 		width: 19px;
 		height: 38px;
 		margin: 0 auto;
+		@extend %hand;
 		@include mw(L) {
 			display: block;
 		}
@@ -693,20 +715,30 @@ h2 {
 		right: 340px;
 		background: url("../../images/button_front.svg") no-repeat
 			center/contain;
+		&._unclick {
+			pointer-events: none;
+			filter: invert(99%) sepia(1%) saturate(1923%) hue-rotate(44deg)
+				brightness(118%) contrast(70%);
+		}
 	}
 	// .music_next
 	&_next {
 		left: 340px;
 		background: url("../../images/button_next.svg") no-repeat center/contain;
+		&._unclick {
+			pointer-events: none;
+			filter: invert(99%) sepia(1%) saturate(1923%) hue-rotate(44deg)
+				brightness(118%) contrast(70%);
+		}
 	}
 	// .music_box
 	&_box {
-		//
 		position: relative;
 		@include mw(L) {
 			overflow: hidden;
 			width: 100%;
 			max-width: 242px;
+			margin: auto;
 		}
 	}
 	// .music_dot
