@@ -1,5 +1,5 @@
 @import url("https://fonts.googleapis.com/css2?family=Nothing+You+Could+Do&family=Noto+Sans:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,400;1,500;1,600;1,700;1,800;1,900&display=swap");
-.border_btn, .border_btn::after, .btn_more, .btn_more::after, .head, .news_item, .news_item_date::before, .about_link_item, .about_link_item::before, .music_group, .alert, .alert_musicBtn::before, .page_detail_front, .page_detail_next, .page_detail_all, .page_detail_front img, .page_detail_next img, .page_detail_all::before {
+.border_btn, .border_btn::after, .btn_more, .btn_more::after, .head, .nav_btn_line::before, .nav_btn_line:after, .news_item, .news_item_date::before, .about_link_item, .about_link_item::before, .music_group, .alert, .alert_musicBtn::before, .page_detail_front, .page_detail_next, .page_detail_all, .page_detail_front img, .page_detail_next img, .page_detail_all::before {
   -webkit-transition-duration: 0.3s;
           transition-duration: 0.3s;
 }
@@ -121,12 +121,6 @@ h2.titleSec .en {
   margin: auto;
   padding: 14px 0;
   border-radius: 4px;
-}
-
-@media screen and (max-width: 1024px) {
-  .border_btn {
-    display: none;
-  }
 }
 
 .music .border_btn {
@@ -297,8 +291,107 @@ h2.titleSec .en {
   color: #352d39;
 }
 
+.nav .link {
+  display: none;
+}
+
 .nav_item + .nav_item {
   margin-left: 50px;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav_item + .nav_item {
+    margin-left: 0;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .nav_item {
+    display: block;
+    color: #352d39;
+  }
+}
+
+@media screen and (max-width: 1024px) {
+  .nav {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+  }
+}
+
+.nav_btn {
+  position: relative;
+  display: none;
+  width: 38px;
+  height: 36px;
+  margin-left: 30px;
+}
+
+@media screen and (max-width: 1024px) {
+  .nav_btn {
+    display: block;
+  }
+}
+
+.nav_btn_line {
+  position: absolute;
+  top: 1px;
+  bottom: 0;
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  margin: auto 0;
+  background-color: white;
+  border-radius: 100px;
+}
+
+.scroll .nav_btn_line {
+  background-color: #352d39;
+}
+
+.nav_btn_line::before, .nav_btn_line:after {
+  content: "";
+  position: absolute;
+  display: block;
+  width: 100%;
+  height: 1.5px;
+  background-color: #fff;
+  border-radius: 100px;
+}
+
+.scroll .nav_btn_line::before, .scroll .nav_btn_line:after {
+  background-color: #352d39;
+}
+
+.nav_btn_line::before {
+  top: 9px;
+}
+
+.nav_btn_line:after {
+  bottom: 9px;
+}
+
+._on .nav_btn_line {
+  background-color: rgba(255, 255, 255, 0);
+}
+
+.scroll ._on .nav_btn_line {
+  background-color: rgba(53, 45, 57, 0);
+}
+
+._on .nav_btn_line::before {
+  top: 0;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
+}
+
+._on .nav_btn_line:after {
+  bottom: 0;
+  -webkit-transform: rotate(-45deg);
+          transform: rotate(-45deg);
 }
 
 .link {
@@ -348,6 +441,13 @@ h2.titleSec .en {
 .link .youtube {
   width: 23px;
   height: 16px;
+}
+
+@media screen and (max-width: 1024px) {
+  .link .spotify,
+  .link .apple_music {
+    display: none;
+  }
 }
 
 .banner {
@@ -865,6 +965,13 @@ h2.titleSec .en {
   padding-bottom: 70px;
 }
 
+@media screen and (max-width: 1024px) {
+  .music {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
 .music::before {
   content: "";
   position: absolute;
@@ -874,6 +981,12 @@ h2.titleSec .en {
   height: 60%;
   margin: auto 0;
   background-color: #f5f2f0;
+}
+
+@media screen and (max-width: 1024px) {
+  .music::before {
+    width: calc(100% - 40px);
+  }
 }
 
 .music_group {

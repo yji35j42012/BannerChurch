@@ -9,7 +9,7 @@ function scrollListener() {
 
 // nav滑動
 window.addEventListener("scroll", scrollListener);
-var nav = document.querySelectorAll("#nav > a");
+var nav = document.querySelectorAll("[name='nav']");
 var scrollState = "down";
 var oldScroll = 0;
 
@@ -37,12 +37,11 @@ if (nowHref.split("#").length == 2) {
 for (let i = 0; i < nav.length; i++) {
 	const element = nav[i];
 	element.onclick = function() {
-		let moveItem = element.getAttribute("name");
+		let moveItem = element.getAttribute("href").split("#")[1];
 		if (
 			nowHref.indexOf("news.html") !== -1 ||
 			nowHref.indexOf("news_detail.html") !== -1
 		) {
-			console.log("!!!", moveItem);
 			location.href = "./index.html#" + moveItem;
 		} else {
 			var item = document.querySelector("#" + moveItem);
@@ -105,3 +104,8 @@ if (page_detail_all) {
 		location.href = "news.html";
 	};
 }
+
+var nav_btn = document.querySelector("#nav_btn");
+nav_btn.onclick = function() {
+	nav_btn.classList.toggle("_on");
+};
