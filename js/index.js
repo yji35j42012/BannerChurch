@@ -170,6 +170,5 @@ music_next.onclick = function() {
 	} else {
 		music_next.classList.remove("_unclick");
 	}
-
 	music_item[music_count].classList.add("_on");
 };

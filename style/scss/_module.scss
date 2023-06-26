@@ -306,6 +306,9 @@ h2 {
 	padding: 0 50px;
 	background-color: #fdfdfd;
 	box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.25);
+	@include mw(L) {
+		display: none;
+	}
 	.logo {
 		width: 117px;
 	}
@@ -418,6 +421,7 @@ h2 {
 	@include d_f(flex, space-between, center);
 	padding: 65px 0 94px 140px;
 	@include mw(L) {
+		display: none;
 		padding-left: 70px;
 	}
 	// .news_item
@@ -537,6 +541,9 @@ h2 {
 	@include d_f(flex, none, center);
 	padding-top: 88px;
 	padding-bottom: 83px;
+	@include mw(L) {
+		display: none;
+	}
 	// .about_detail
 	&_detail {
 		padding-top: 30px;
@@ -779,6 +786,9 @@ h2 {
 		height: 100%;
 		background: url("../../images/contact_bg.jpg") no-repeat left/cover;
 	}
+	@include mw(L) {
+		display: none;
+	}
 	// .contact_box
 	&_box {
 		position: relative;
@@ -884,6 +894,9 @@ h2 {
 .ablum {
 	padding-top: 86px;
 	padding-bottom: 40px;
+	@include mw(L) {
+		display: none;
+	}
 	// .ablum_group
 	&_group {
 		@include d_f(flex);
@@ -1038,7 +1051,6 @@ h2 {
 		line-height: 23px;
 	}
 }
-
 .content {
 	flex: 1 1 100%;
 	// width: 100%;
@@ -1046,7 +1058,6 @@ h2 {
 	padding-top: 30px;
 	padding-bottom: 70px;
 }
-
 .page {
 	@include d_f(flex, flex-end);
 	margin-top: 36px;

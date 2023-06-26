@@ -434,6 +434,12 @@ h2.titleSec .en {
           box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.25);
 }
 
+@media screen and (max-width: 1024px) {
+  .footer {
+    display: none;
+  }
+}
+
 .footer .logo {
   width: 117px;
 }
@@ -599,6 +605,7 @@ h2.titleSec .en {
 
 @media screen and (max-width: 1024px) {
   .news {
+    display: none;
     padding-left: 70px;
   }
 }
@@ -761,6 +768,12 @@ h2.titleSec .en {
           align-items: center;
   padding-top: 88px;
   padding-bottom: 83px;
+}
+
+@media screen and (max-width: 1024px) {
+  .about {
+    display: none;
+  }
 }
 
 .about_detail {
@@ -1070,6 +1083,12 @@ h2.titleSec .en {
   background: url("../../images/contact_bg.jpg") no-repeat left/cover;
 }
 
+@media screen and (max-width: 1024px) {
+  .contact {
+    display: none;
+  }
+}
+
 .contact_box {
   position: relative;
   width: 100%;
@@ -1223,6 +1242,12 @@ h2.titleSec .en {
 .ablum {
   padding-top: 86px;
   padding-bottom: 40px;
+}
+
+@media screen and (max-width: 1024px) {
+  .ablum {
+    display: none;
+  }
 }
 
 .ablum_group {
