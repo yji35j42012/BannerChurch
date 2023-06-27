@@ -250,7 +250,19 @@ h2.titleSec .en {
           box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 }
 
+.head._show_menu::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: block;
+  width: 100%;
+  height: 100vh;
+  background-color: #fff;
+}
+
 .logo {
+  z-index: 2;
   position: relative;
   display: inline-block;
   width: 131px;
@@ -262,7 +274,8 @@ h2.titleSec .en {
 }
 
 .scroll .logo_img1,
-._newsDetail .logo_img1 {
+._newsDetail .logo_img1,
+._show_menu .logo_img1 {
   opacity: 0;
 }
 
@@ -274,7 +287,8 @@ h2.titleSec .en {
 }
 
 .scroll .logo_img2,
-._newsDetail .logo_img2 {
+._newsDetail .logo_img2,
+._show_menu .logo_img2 {
   opacity: 1;
 }
 
@@ -295,7 +309,7 @@ h2.titleSec .en {
   display: none;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .nav .link {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -317,13 +331,13 @@ h2.titleSec .en {
   margin-left: 50px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .nav_item + .nav_item {
     margin-left: 0;
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .nav_item {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -341,7 +355,7 @@ h2.titleSec .en {
   }
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .nav {
     position: absolute;
     top: 71px;
@@ -360,7 +374,7 @@ h2.titleSec .en {
   margin-left: 30px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .nav_btn {
     display: block;
   }
@@ -392,7 +406,9 @@ h2.titleSec .en {
   border-radius: 100px;
 }
 
-.scroll .nav_btn_line::before, .scroll .nav_btn_line:after {
+.scroll .nav_btn_line::before,
+._show_menu .nav_btn_line::before, .scroll .nav_btn_line:after,
+._show_menu .nav_btn_line:after {
   background-color: #352d39;
 }
 
@@ -404,21 +420,21 @@ h2.titleSec .en {
   bottom: 9px;
 }
 
-._on .nav_btn_line {
+._show_menu .nav_btn_line {
   background-color: rgba(255, 255, 255, 0);
 }
 
-.scroll ._on .nav_btn_line {
+.scroll ._show_menu .nav_btn_line {
   background-color: rgba(53, 45, 57, 0);
 }
 
-._on .nav_btn_line::before {
+._show_menu .nav_btn_line::before {
   top: 0;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
-._on .nav_btn_line:after {
+._show_menu .nav_btn_line:after {
   bottom: 0;
   -webkit-transform: rotate(-45deg);
           transform: rotate(-45deg);
@@ -483,7 +499,7 @@ h2.titleSec .en {
   height: 16px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .link:not(._nav) .spotify,
   .link:not(._nav) .apple_music {
     display: none;
@@ -574,7 +590,7 @@ h2.titleSec .en {
           box-shadow: 0px -1px 2px rgba(0, 0, 0, 0.25);
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .footer {
     display: none;
   }
@@ -723,7 +739,7 @@ h2.titleSec .en {
   padding: 0 140px 0 65px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .about .txtBox {
     padding-right: 40px;
     padding-left: 30px;
@@ -743,7 +759,7 @@ h2.titleSec .en {
   padding: 65px 0 94px 140px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .news {
     display: none;
     padding-left: 70px;
@@ -910,7 +926,7 @@ h2.titleSec .en {
   padding-bottom: 83px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .about {
     display: none;
   }
@@ -1005,7 +1021,7 @@ h2.titleSec .en {
   padding-bottom: 70px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .music {
     padding-left: 20px;
     padding-right: 20px;
@@ -1023,7 +1039,7 @@ h2.titleSec .en {
   background-color: #f5f2f0;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .music::before {
     width: calc(100% - 40px);
   }
@@ -1045,7 +1061,7 @@ h2.titleSec .en {
   margin-top: 73px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .music_group {
     -webkit-box-pack: start;
         -ms-flex-pack: start;
@@ -1098,7 +1114,7 @@ h2.titleSec .en {
   background: url("../../images/icon_play.svg") no-repeat center/contain;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .music_item {
     -webkit-box-flex: 0;
         -ms-flex: none;
@@ -1144,7 +1160,7 @@ h2.titleSec .en {
   margin: 0 auto;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .music_prev, .music_next {
     display: block;
   }
@@ -1176,7 +1192,7 @@ h2.titleSec .en {
   position: relative;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .music_box {
     overflow: hidden;
     width: 100%;
@@ -1190,7 +1206,7 @@ h2.titleSec .en {
   margin-top: 50px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .music_dot {
     display: -webkit-box;
     display: -ms-flexbox;
@@ -1236,7 +1252,7 @@ h2.titleSec .en {
   background: url("../../images/contact_bg.jpg") no-repeat left/cover;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .contact {
     display: none;
   }
@@ -1397,7 +1413,7 @@ h2.titleSec .en {
   padding-bottom: 40px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 767px) {
   .ablum {
     display: none;
   }
