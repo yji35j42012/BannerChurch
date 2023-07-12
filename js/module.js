@@ -106,6 +106,7 @@ if (page_detail_all) {
 }
 
 var nav_btn = document.querySelector("#nav_btn");
+var head = document.querySelector("#head");
 nav_btn.onclick = function() {
-	nav_btn.classList.toggle("_on");
+	head.classList.toggle("_showMenu");
 };

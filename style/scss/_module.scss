@@ -61,7 +61,8 @@ h2 {
 	}
 }
 .container {
-	max-width: 1000px;
+	@include d_f(flex);
+	max-width: 1280px;
 	margin: auto;
 }
 .border_btn {
@@ -160,7 +161,7 @@ h2 {
 		box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
 	}
 	@include mw(S) {
-		&._show_menu::before {
+		&._showMenu::before {
 			content: "";
 			position: absolute;
 			top: 0;
@@ -184,7 +185,7 @@ h2 {
 		opacity: 1;
 		.scroll &,
 		._newsDetail &,
-		._show_menu & {
+		._showMenu & {
 			opacity: 0;
 		}
 	}
@@ -197,7 +198,7 @@ h2 {
 
 		.scroll &,
 		._newsDetail &,
-		._show_menu & {
+		._showMenu & {
 			opacity: 1;
 		}
 	}
@@ -241,11 +242,18 @@ h2 {
 	}
 	@include mw(S) {
 		position: absolute;
-		top: 71px;
+		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100vh;
+		padding-top: 71px;
 		background-color: #fff;
+		transform: translateX(100%);
+		transition-duration: 0.3s;
+
+		._showMenu & {
+			transform: translateX(0);
+		}
 	}
 	// .nav_btn
 	&_btn {
@@ -268,7 +276,8 @@ h2 {
 			margin: auto 0;
 			background-color: rgba(255, 255, 255, 1);
 			border-radius: 100px;
-			.scroll & {
+			.scroll &,
+			._showMenu & {
 				background-color: rgba(53, 45, 57, 1);
 			}
 			&::before,
@@ -282,8 +291,7 @@ h2 {
 				border-radius: 100px;
 				@extend %transition;
 				.scroll &,
-				,
-				._show_menu & {
+				._showMenu & {
 					background-color: #352d39;
 				}
 			}
@@ -293,7 +301,7 @@ h2 {
 			&:after {
 				bottom: 9px;
 			}
-			._show_menu & {
+			._showMenu & {
 				background-color: rgba(255, 255, 255, 0);
 				.scroll & {
 					background-color: rgba(53, 45, 57, 0);
@@ -331,7 +339,7 @@ h2 {
 		}
 		.scroll &,
 		.footer &,
-		._show_menu &,
+		._showMenu &,
 		._newsDetail & {
 			filter: invert(15%) sepia(12%) saturate(892%) hue-rotate(236deg)
 				brightness(96%) contrast(89%);
@@ -509,7 +517,7 @@ h2 {
 		}
 	}
 	.news & {
-		width: 40%;
+		width: 50%;
 		max-width: 480px;
 		min-width: 360px;
 	}
